@@ -1,0 +1,215 @@
+const superman = {
+    name: 'Superman',
+    'real name': 'Clark Kent',
+    height: 75,
+    weight: 235,
+    hero: true,
+    villain: false,
+    allies: ['Batman','Supergirl','Superboy'],
+    fly() {
+        return 'Up, up and away!';
+    }
+};
+
+const spiderman = {};
+const spiderman = new Object();
+
+const name = 'Iron Man';
+const realName = 'Tony Stark';
+// long way
+const ironMan = ( name: name, realName: realName };
+// short ES6 way
+const ironMan = { name, realName };
+
+
+superman.name
+<< 'Superman'
+superman['name']
+<< 'Superman'
+
+
+superman.fly()
+<< 'Up, up and away!'
+superman['fly']()
+<< 'Up, up and away!'
+
+
+'city' in superman;
+<< false
+superman.city !== undefined;
+<< false
+superman.hasOwnProperty('city');
+<< false
+superman.hasOwnProperty('name');
+<< true
+
+for(const key in superman) {
+console.log(key + ": " + superman[key]);
+}
+<< "name: Superman"
+<< "real name: Clark Kent"
+<< "height: 75"
+<< "weight: 235"
+<< "hero: true"
+<< "villain: false"
+<< "allies: Batman,Supergirl,Superboy"
+<< "fly: function (){
+console.log(\"Up, up and away!\");
+}"
+
+
+for(const value of Object.values(superman)) {
+console.log(value);
+}
+<< Superman
+Clark Kent
+75
+235
+true
+false
+[ 'Batman','Supergirl','Superboy' ]
+[Function: fly]
+
+
+superman
+<< { name: 'Superman',
+'real name': 'Clark Kent',
+height: 75,
+weight: 235,
+hero: true,
+villain: false,
+allies: [ 'Batman', 'Supergirl', 'Superboy' ],
+fly: [Function: fly]
+city: 'Metropolis' }
+
+
+const jla = {
+    superman: { realName: 'Clark Kent' },
+    batman: { realName: 'Bruce Wayne' },
+    wonderWoman: { realName: 'Diana Prince" },
+    flash: { realName: 'Barry Allen' },
+    aquaman: { realName: 'Arthur Curry' },
+}
+
+
+const myMaths = {
+square(x) {
+    return x * x;
+    },
+    mean(array,callback) {
+        if (callback) {
+        array.map( callback );
+        }
+        const total = array.reduce((a, b) => a + b);
+        return total/array.length;
+    }
+};
+
+
+JSON.parse(batman);
+<< { name: 'Batman',
+'real name': 'Bruce Wayne',
+height: 74,
+weight: 210,
+hero: true,
+villain: false,
+allies: [ 'Robin', 'Batgirl', 'Superman' ] }
+
+
+const wonderWoman = {
+name: 'Wonder Woman',
+'real name': 'Diana Prince',
+height: 72,
+weight: 165,
+hero: true,
+villain: false,
+allies: ['Wonder Girl','Donna Troy','Superman'],
+lasso: function(){
+    console.log('You will tell the truth!');
+}
+}
+JSON.stringify(wonderWoman);
+<< '{"name":"Wonder Woman","real name":"Diana Prince","height":72,
+"weight":165,"hero":true,"villain":false,"allies":["Wonder Girl",
+
+
+Math.PI // The ratio of the circumference and diameter of a circle
+<< 3.141592653589793
+
+Math.SQRT2 // The square root of 2
+<< 1.4142135623730951
+
+Math.SQRT1_2 // The reciprocal of the square root of 2
+<< 0.7071067811865476
+
+Math.E // Euler's constant
+<< 2.718281828459045
+
+Math.LN2 // The natural logarithm of 2
+<< 0.6931471805599453
+
+Math.LN10 // The natural logarithm of 10
+<< 2.302585092994046
+
+Math.LOG2E // Log base 2 of Euler's constant
+<< 1.4426950408889634
+
+Math.LOG10E // Log base 10 of Euler's constant
+<< 0.4342944819032518
+
+
+Math.ceil(4.2);
+<< 5
+
+Math.ceil(8);
+<< 8
+
+Math.ceil(-4.2);
+<< -4
+
+
+Math.exp(1); // This is Euler's constant
+<< 2.718281828459045
+
+Math.exp(0); // Any number to the power of 0 is 1
+<< 1
+
+Math.exp(-3);
+<< 0.049787068367863944
+
+
+Math.sqrt(121);
+<< 11
+
+Math.sqrt(2); // same as Math.SQRT2
+<< 1.4142135623730951
+
+Math.sqrt(-1); // imaginary numbers aren't supported!
+<< NaN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
