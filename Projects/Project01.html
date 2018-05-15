@@ -96,7 +96,7 @@
                      onchange="calculatePayment(document.getElementById('apr').value,
                                                 document.getElementById('loanTerm').value,
                                                 document.getElementById('loanAmount').value)"
-                     content='width=device-width, initial-scale=1' name='viewport'>
+                     size="10">
               <p id="aprError"></p>
               
                 <script>
@@ -108,7 +108,8 @@
               <input type="text" id="loanTerm"
                      onchange="calculatePayment(document.getElementById('apr').value,
                                document.getElementById('loanTerm').value,
-                               document.getElementById('loanAmount').value)">
+                               document.getElementById('loanAmount').value)"
+                     size="10">
               <p id="loanTermError"></p>
               
               
@@ -116,7 +117,8 @@
               <input type="text" id="loanAmount"
                      onchange="calculatePayment(document.getElementById('apr').value,
                                                 document.getElementById('loanTerm').value,
-                                                document.getElementById('loanAmount').value)">
+                                                document.getElementById('loanAmount').value)"
+                     size="10">
               <p id="loanAmountError"></p>
               
               
