@@ -3,7 +3,7 @@ body {
 }
 
 header {
-    padding: 0.5px;
+    padding: 0.1px;
     /* This is Sky Blue */
     background-color: #668cff;
     font-family: 'britannic';
@@ -11,14 +11,14 @@ header {
     /* This is Navy Blue */
     color: #00004d;
     text-align: center;
-    margin-right: 20%;
-    margin-left: 20%;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
 .mortgageForm {
-    padding: 25px;
-    margin-left: 20%;
-    margin-right: 20%;
+    padding: 15px;
+    margin-left: 5%;
+    margin-right: 5%;
     /* This is Sky Blue */
     background-color: #668cff;
     text-align: center;
