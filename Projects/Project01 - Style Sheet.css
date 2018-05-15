@@ -1,0 +1,33 @@
+body {
+    background-image: url(background.jpg)
+}
+
+header {
+    padding: 0.5px;
+    /* This is Sky Blue */
+    background-color: #668cff;
+    font-family: 'britannic';
+    font-size: 22px;
+    /* This is Navy Blue */
+    color: #00004d;
+    text-align: center;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.mortgageForm {
+    padding: 25px;
+    margin-left: 20%;
+    margin-right: 20%;
+    /* This is Sky Blue */
+    background-color: #668cff;
+    text-align: center;
+    font-family: 'ar julian';
+    font-size: 23px;
+}
+
+input {
+    padding: 6px;
+    font-family: 'arial';
+    font-size: 18px;
+}

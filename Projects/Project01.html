@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang = “en” >
+  <head>
+      <meta charset = “utf-8” />
+      <meta content='width=device-width, initial-scale=1' name='viewport'/>
+      <link rel="stylesheet" href="Project01%20-%20Style%20Sheet.css"> 
+      <title> Javascript Mortgage Calculator </title>
+      <script>
+        function focus() {
+            return document.getElementById("apr").focus();
+        };
+        
+        function calculatePayment(rate, time, principal) {
+            var errorMessage1 = "Missing Input";
+            var errorMessage2 = "Invalid Input";
+            
+            //check if the fields are empty
+            if((rate == "") || (time == "") || (principal == "")) {
+                if (rate == "") {
+                    document.getElementById("aprError").innerHTML = errorMessage1;
+                    document.getElementById("loanTermError").innerHTML = "";
+                    document.getElementById("loanAmountError").innerHTML = "";
+                    document.getElementById("apr").focus();
+                }
+            
+                else if (time == ""){
+                    document.getElementById("loanTermError").innerHTML = errorMessage1;
+                    document.getElementById("aprError").innerHTML = "";
+                    document.getElementById("loanAmountError").innerHTML = "";
+                    document.getElementById("loanTerm").focus();
+                }
+            
+                else if (principal == ""){
+                    document.getElementById("loanAmountError").innerHTML = errorMessage1;
+                    document.getElementById("aprError").innerHTML = "";
+                    document.getElementById("loanTermError").innerHTML = "";
+                    document.getElementById("loanAmount").focus();
+                }
+                
+                else {
+                    document.getElementById("aprError").innerHTML = "";
+                    document.getElementById("loanTermError").innerHTML = "";
+                    document.getElementById("loanAmountError").innerHTML = "";
+                }                
+            }
+            
+            //check that the Input is valid.
+            else {
+                if (isNaN(rate) || rate < 0.0 || rate > 100.0) {
+                    document.getElementById("apr").value = "";
+                    document.getElementById("apr").focus();
+                    document.getElementById("loanTermError").innerHTML = "";
+                    document.getElementById("loanAmountError").innerHTML = "";
+                }
+
+                else if (isNaN(time)) {
+                    document.getElementById("loanTerm").value = "";
+                    document.getElementById("loanTerm").focus();
+                    document.getElementById("aprError").innerHTML = "";
+                    document.getElementById("loanAmountError").innerHTML = "";
+                }
+
+                else if (isNaN(principal)) {
+                    document.getElementById("loanAmount").value = "";
+                    document.getElementById("loanAmount").focus();
+                    document.getElementById("aprError").innerHTML = "";
+                    document.getElementById("loanTermError").innerHTML = "";
+                }
+
+                else {
+                    document.getElementById("aprError").innerHTML = "";
+                    document.getElementById("loanTermError").innerHTML = "";
+                    document.getElementById("loanAmountError").innerHTML = "";
+                    rate = ((rate / 100) / 12) //% rate
+                    time = (12 * time) //total months
+                    var x = principal * ((rate * (Math.pow((1 + rate), time))) / (Math.pow((1 + rate), (time)) - 1));
+                    x = x.toFixed(2);
+                    document.getElementById("monthlyPayment").innerHTML = x;
+                }
+            }
+                
+        };
+      </script>
+  </head>
+  <body>
+    <header><h1> Welcome to the "Mortgage Calculator" </h1></header>
+      
+      <hr>
+      
+      <div class="mortgageForm">
+          <form name="myForm" action="" onreset="document.getElementById('apr').focus(); 
+                                                 document.getElementById('monthlyPayment').innerHTML = ''">
+              
+              APR - Annual Percentage Rate (%): <br><br>
+              <input type="text" id="apr"
+                     onchange="calculatePayment(document.getElementById('apr').value,
+                                                document.getElementById('loanTerm').value,
+                                                document.getElementById('loanAmount').value)">
+              <p id="aprError"></p>
+              
+                <script>
+                    window.onload = focus();
+                </script>
+              
+              
+              Loan Term - (in years): <br><br>
+              <input type="text" id="loanTerm"
+                     onchange="calculatePayment(document.getElementById('apr').value,
+                               document.getElementById('loanTerm').value,
+                               document.getElementById('loanAmount').value)">
+              <p id="loanTermError"></p>
+              
+              
+              Loan Amount - ($): <br><br>
+              <input type="text" id="loanAmount"
+                     onchange="calculatePayment(document.getElementById('apr').value,
+                                                document.getElementById('loanTerm').value,
+                                                document.getElementById('loanAmount').value)">
+              <p id="loanAmountError"></p>
+              
+              
+              Monthly Payment ($): <br><br>
+              <output type="text" id="monthlyPayment"></output>
+                  <script>
+                        document.getElementById('monthlyPayment').onchange = calculatePayment(apr,loanTerm,loanAmount);
+                  </script><br><br>
+              
+              
+              <input type="reset" value="Clear Form" style="font-family:'ar julian'">
+              
+              
+              <input type="button" value="Calculate Payment" style="font-family:'ar julian'"
+                     onclick="calculatePayment(document.getElementById('apr').value,
+                                               document.getElementById('loanTerm').value, 
+                                               document.getElementById('loanAmount').value)">
+              <br>
+          </form>
+      </div>
+  </body>
+</html>
