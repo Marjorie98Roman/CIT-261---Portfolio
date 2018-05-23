@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title> Order Form </title>      
+   <base> 
+       <meta charset = “utf-8” />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="Project02%20-%20Style%20Sheet.css">
+       <script>
+   
+       function myFunction() {
+            document.getElementById("orderForm").reset();
+        }
+           
+       //Calculate the total price   
+       function calcTotal(id)
+       {
+          var car = document.getElementById(id);
+          var total = document.getElementById('total');
+          var numTotal = total.innerHTML * 1; //There is only one Total
+          var numCheckedCars = car.value * 1;
+
+          if (car.checked == true)
+          {
+             numTotal += numCheckedCars;
+          }
+          else
+          {
+             numTotal -= numCheckedCars;
+          }
+
+          numTotal = Math.round(numTotal * 100);
+          numTotal /= 100;
+
+          if (numTotal == 0)
+          {
+             numTotal = "0.00";
+             total.innerHTML = "";
+          }
+          total.innerHTML = numTotal;
+       }
+
+       //Checks if all fields are valid
+       function validateAll()
+       {
+          var field = "";
+           
+          var hadErrors = false;
+       
+          //Checks if a Car has been chosen.
+          var type = document.orderForm.type;
+          var typeSelected = false;
+          for (i = 0; i < type.length; i++)
+          {
+              if (type[i].checked)
+              {
+                  typeSelected = true;
+                  break;
+              }
+          }
+
+          if (!typeSelected)
+          {
+              if (field == "")
+              {
+                  field = "type";
+              }
+
+              hadErrors = true;
+              document.getElementById('invalidType').style.display = "block";
+          }
+
+          else
+          {
+             document.getElementById('invalidType').style.display = "none";
+          }
+
+           
+        return !hadErrors;
+   }
+   
+   
+   </script>
+
+   <style type="text.css">
+   .invalid
+   {
+      display: none;
+   }
+   
+   td
+   {
+      display: none;
+   }
+   
+   </style>
+   
+      
+</head>
+
+<body>
+   <div style="text-align:center; align-content: center;"><h1>Buy the car of your dreams...</h1>
+   <form class="orderForm" action="contact.html" onreset="myFunction()"
+         id="orderForm" onsubmit="return validateAll();" onchange="return validateAll()">
+    
+   <br><p style="font-size:22px"><b>Car Models</b></p>
+       
+   <table style="margin: auto" style="width:60%">
+      <tr>
+         <td width="10">
+             <input type="checkbox" name="car1" id="car1"
+                    value="31200" onclick="calcTotal('car1');"/>
+          </td>
+          <td width="80"><img src="car1.jpg" alt="2017 A3 Sedan" width="120" height="75"></td>
+      </tr>
+       
+      <tr>
+         <td width="10">
+             <input type = "checkbox" name = "car2" id = "car2"
+	            value = "32900" onclick = "calcTotal('car2');"/>
+          </td>
+          <td width="80"><img src="car2.jpg" alt="2017 A3 Sedan" width="120" height="75"></td>
+      </tr>
+       
+      <tr>
+         <td width="10">
+             <input type = "checkbox" name = "car3" id = "car3"
+	            value = "49600" onclick = "calcTotal('car3');"/>
+          </td>
+          <td width="80"><img src="car3.jpg" alt="2017 A3 Sedan" width="120" height="75"></td>
+      </tr>
+       
+      <tr>
+         <td width="10">
+             <input type = "checkbox" name = "car4" id = "car4"
+	            value = "162900" onclick = "calcTotal('car4');"/>
+          </td>
+          <td width="80"><img src="car4.jpg" alt="2017 A3 Sedan" width="120" height="75"></td>
+      </tr>
+       
+      <tr>
+         <td width="10">
+             <input type = "checkbox" name = "car5" id = "car5"
+	            value = "110700" onclick = "calcTotal('car5');"/>
+          </td>
+          <td width="80"><img src="car5.jpg" alt="2017 A3 Sedan" width="120" height="75"></td>
+      </tr>
+       
+      <tr>
+          <td colspan="2"><pre style="font-size:22px"><b>Total: $</b></pre></td>
+          <td id="total"></td>
+      </tr>
+   </table>
+
+       <br><hr>
+          
+	    <p>
+	       <input type="submit" value="Submit"/> 
+	       <input type="reset" value="Reset" 
+                  style="position:relative" onclick="myFunction()"/>
+	    </p>
+          
+    </form>
+</div>
+</body>
+</html>

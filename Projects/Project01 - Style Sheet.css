@@ -16,14 +16,14 @@ header {
 }
 
 .mortgageForm {
-    padding: 10px;
-    margin-left: 6%;
-    margin-right: 6%;
+    padding: 0.5px;
+    margin-left: 20%;
+    margin-right: 20%;
     /* This is Sky Blue */
     background-color: #668cff;
     text-align: center;
     font-family: 'ar julian';
-    font-size: 20px;
+    font-size: 18px;
 }
 
 input {

@@ -1,0 +1,30 @@
+body {
+    background-image: url(background.jpg);
+    background-size: 100% 100%;
+}
+
+h1 {
+    /* This is Sky Blue */
+    background-color: aliceblue;
+    font-family: 'britannic';
+    font-size: 22px;
+    /* This is Navy Blue */
+    color: #000066;
+    text-align: center;
+    margin-right: 10%;
+    margin-left: 10%;
+    padding: 0.20px;
+}
+
+.orderForm {
+    padding: 0.5px;
+    background-color: aliceblue;
+    margin-right: 10%;
+    margin-left: 10%;
+    font-family: 'calibri';
+    font-size: 18px;
+}
+
+#price {
+    text-align: left;
+}
