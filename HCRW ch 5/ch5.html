@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Video Example</title>
+        <script>
+            playPauseBtn.addEventListener('click', function () {
+                if (videoEl.paused) {
+                    videoEl.play();
+                } else {
+                    videoEl.pause();
+                }
+            }, false);
+            
+            videoEl.addEventListener('play', function () {
+                playPauseBtn.classList.add('playing');
+            }, false);
+            
+            videoEl.addEventListener('pause', function () {
+                playPauseBtn.classList.remove('playing');
+            }, false);
+            
+            muteBtn.addEventListener('click', function () {
+                if (videoEl.muted) {
+                    videoEl.muted = false;
+                } else {
+                    videoEl.muted = true;
+                }
+            }, false);
+            
+            videoEl.addEventListener('volumechange', function () {
+                if (videoEl.muted) {
+                    muteBtn.classList.add('muted');
+                } else {
+                    muteBtn.classList.remove('muted');
+                }
+            }, false);
+            
+            videoEl.addEventListener('ended', function () {
+                videoEl.currentTime = 0;
+            }, false);
+            
+            videoEl.addEventListener('timeupdate', function () {
+                timeHolder.innerHTML = secondsToTime(videoEl.currentTime);
+            }, false);
+        </script>
+    </head>
+    <body>
+        <video width="375" height="280" poster="teaser.jpg" audio="muted">
+            <source src="example.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <source src="example.webm" type='video/webm; codecs="vp8, vorbis"'>
+                1 http://caniuse.com/
+                HTML5 Video and Audio 107
+            <source src="example.ogv" type='video/ogg; codecs="theora, vorbis"'>
+        </video>
+        
+        <video width="375" height="280" poster="teaser.jpg" audio="muted">
+            <source src="example.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <source src="example.webm" type='video/webm; codecs="vp8, vorbis"'>
+            2 http://www.adobe.com/ca/products/flashruntimes/statistics.html
+            108 HTML5 & CSS3 for the Real World
+            <source src="example.ogv" type='video/ogg; codecs="theora, vorbis"'>
+            <!-- fallback to Flash: -->
+            <object width="375" height="280" type="application/x-shockwave- flash" data="mediaplayer-5.5/player.swf">
+                <param name="movie" value="mediaplayer-5.5/player.swf">
+                <param name="allowFullScreen" value="true">
+                <param name="wmode" value="transparent">
+                <param name="flashvars" value="controlbar=over&amp;image=images/ teaser.jpg&amp;file=example.mp4">
+                <!-- fallback image -->
+                <img src="teaser.jpg" width="375" height="280" alt="" title="No video playback capabilities">
+            </object>
+        </video>
+        
+        <video src="example.webm">
+            <track kind="subtitles" src="example.en.vtt" srclang="en" label= "English" default>
+            <track kind="captions" src="example.en.hoh.vtt" srclang="en" label ="English for the Hard of Hearing">
+            <track kind="subtitles" src="example.fr.vtt" srclang="fr" lang="fr"label="Français">
+            <track kind="subtitles" src="example.de.vtt" srclang="de" lang="de" label="Deutsch">
+        </video>
+        
+        <div id="controls" class="hidden">
+            <a id="playPause">Play/Pause</a>
+            <span id="timer">00:00</span>
+            <a id="muteUnmute">Mute/Unmute</a>
+        </div>
+    </body>
+</html>
