@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-image: url(background.jpg);
+                font-family: 'ar julian';
+                font-size: 18px;
+            }
+
+            header {
+                padding: 0.5px;
+                /* This is Sky Blue */
+                background-color: #668cff;
+                font-family: 'britannic';
+                font-size: 22px;
+                /* This is Navy Blue */
+                color: #00004d;
+                margin-right: 15%;
+                margin-left: 15%;
+            }
+
+            input {
+                padding: 6px;
+                font-family: 'arial';
+                font-size: 18px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div style="background-color: #668cff;padding-left: 13px;padding-right: 13px;height: 300px;padding-top: 0.5;padding-top: 1px;width: 250px;">
+            <h2>Celcius to Fahrenheit</h2>
+
+            <p>Insert a number below:</p>
+
+            <p>Celsius</p>
+            <input id="c" onkeyup="convert('C')"> 
+
+            <p>Fahrenheit</p>
+            <input id="f" onkeyup="convert('F')"> 
+
+            <script>
+                function convert(degree) {
+                    var x;
+                    if (degree == "C") {
+                        x = document.getElementById("c").value * 9 / 5 + 32;
+                        document.getElementById("f").value = Math.round(x);
+                    } else {
+                        x = (document.getElementById("f").value -32) * 5 / 9;
+                        document.getElementById("c").value = Math.round(x);
+                    }
+                }
+            </script>
+        </div>
+    </body>
+</html>
